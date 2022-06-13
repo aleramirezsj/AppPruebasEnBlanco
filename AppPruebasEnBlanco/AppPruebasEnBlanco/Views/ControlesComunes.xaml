@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AppPruebasEnBlanco.Core"             
+             x:Class="AppPruebasEnBlanco.Views.ControlesComunes">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="Aquamarine">
+                <Label x:Name="LblControlesComunes" Text="Controles Comunes" 
+                       TextColor="Black"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" />
+            </Frame>
+            <ScrollView>
+                <Grid BackgroundColor="Beige">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" 
+                           Grid.Column="0" 
+                           TextColor="Black" 
+                           FontSize="Large" 
+                           HorizontalOptions="CenterAndExpand">Button</Label>
+                    <Button Text="{Static local:Literals.TextoBotonMayúsculas }"
+                            x:Name="BtnMayúsculas"
+                            Grid.Row="0" 
+                            Grid.Column="1" 
+                            Clicked="PonerMayúsculasMinúsculas"/>
+                    <Label Grid.Row="1" 
+                           Grid.Column="0" 
+                           TextColor="Black" 
+                           FontSize="Large" 
+                           HorizontalOptions="CenterAndExpand">DatePicker</Label>
+                    <DatePicker TextColor="Black" 
+                                Grid.Row="1" 
+                                Grid.Column="1" 
+                                Format="dd/MM/yyyy"/>
+                    <Label Grid.Row="2" 
+                           Grid.Column="0" 
+                           TextColor="Black" 
+                           FontSize="Large" 
+                           HorizontalOptions="CenterAndExpand">TimePicker</Label>
+                    <TimePicker Grid.Row="2"
+                                Grid.Column="1"
+                                TextColor="Black"/>
+                    <Label x:Name="LblSlider"
+                            Grid.Row="3" 
+                           Grid.Column="0" 
+                           TextColor="Black" 
+                           FontSize="Large" 
+                           HorizontalOptions="CenterAndExpand">Slider</Label>
+                    <Slider x:Name="SldSlider"
+                            Minimum="0"
+                            Maximum="100"
+                            ThumbColor="Blue"
+                            Grid.Row="3"
+                            Grid.Column="1"/>
+                    <Label x:Name="LblStepper"
+                            Grid.Row="4" 
+                           Grid.Column="0" 
+                           TextColor="Black" 
+                           FontSize="Large" 
+                           HorizontalOptions="CenterAndExpand">Stepper</Label>
+                    <Stepper x:Name="StpStepper" 
+                            Grid.Row="4" 
+                            Grid.Column="1"
+                             Minimum="0" 
+                             Maximum="200"
+                             Increment="1"/>
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

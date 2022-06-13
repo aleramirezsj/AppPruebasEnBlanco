@@ -21,5 +21,10 @@ namespace AppPruebasEnBlanco.Views
         {
             await Navigation.PushAsync(new PruebaDeGrid());
         }
+
+        private async void AbrirControlesComunes(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ControlesComunes());
+        }
     }
 }

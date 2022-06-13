@@ -15,6 +15,13 @@ namespace AppPruebasEnBlanco.Views
         public PruebaDeGrid()
         {
             InitializeComponent();
+            BtnCerrar.Clicked += CerrarPruebaDeGrid;
+            BtnRecordatorio.Clicked += (s, a) =>
+             {
+                 _ = DisplayAlert("Recordatorio", "Anotarse al turno de exámenes", "Ok");
+             };
+           
+
         }
         private async void CerrarPruebaDeGrid(object sender, EventArgs e)
         {
