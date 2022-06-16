@@ -4,5 +4,22 @@
              x:Class="AppPruebasEnBlanco.App">
     <Application.Resources>
         <Color x:Key="ColorFondoGrillas">Gainsboro</Color>
+        <Color x:Key="ColorFondoBoton">Coral</Color>
+        <Style x:Key="EstiloBotonDefault" TargetType="Button">
+            <Setter Property="MinimumWidthRequest"
+                    Value="100" />
+            <Setter Property="TextColor"
+                    Value="BlanchedAlmond"/>
+            <Setter Property="CornerRadius"
+                    Value="15"/>
+            <Setter Property="BackgroundColor"
+                    Value="{StaticResource ColorFondoBoton}"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily"
+                    Value="Impact"/>
+            <Setter Property="FontSize"
+                    Value="Large"/>
+        </Style>
     </Application.Resources>
 </Application>

@@ -12,8 +12,15 @@
             </Frame>
             <Label Text="Pruebas Gestión de proyectos" 
                 HorizontalOptions="CenterAndExpand" FontSize="Large" />
-            <Button Text="Prueba de Grid" Margin="40" CornerRadius="15" Clicked="AbrirPruebaDeGrid"></Button>
-            <Button Text="Controles comunes" Margin="40" CornerRadius="15" Clicked="AbrirControlesComunes"></Button>
+            <Button Text="Prueba de Grid" 
+                    Margin="40"  
+                    Clicked="AbrirPruebaDeGrid"
+                    Style="{StaticResource EstiloBotonDefault}"></Button>
+            <Button Text="Controles comunes" 
+                    Margin="40"  
+                    Clicked="AbrirControlesComunes"
+                    Style="{StaticResource EstiloBotonDefault}"></Button>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

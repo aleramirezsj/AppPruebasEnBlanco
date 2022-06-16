@@ -83,7 +83,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\logoisp20Anterior.jfif" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AppPruebasEnBlanco\AppPruebasEnBlanco.csproj">
       <Project>{044F712B-1514-46F8-8D9F-A9B463677F70}</Project>
