@@ -5,6 +5,7 @@
     <Application.Resources>
         <Color x:Key="ColorFondoGrillas">Gainsboro</Color>
         <Color x:Key="ColorFondoBoton">Coral</Color>
+        
         <Style x:Key="EstiloBotonDefault" TargetType="Button">
             <Setter Property="MinimumWidthRequest"
                     Value="100" />
@@ -15,11 +16,25 @@
             <Setter Property="BackgroundColor"
                     Value="{StaticResource ColorFondoBoton}"/>
         </Style>
+
+        <Style TargetType="Grid">
+            <Setter Property="BackgroundColor"
+                    Value="Beige"/>
+        </Style>
         <Style TargetType="Label">
             <Setter Property="FontFamily"
                     Value="Impact"/>
             <Setter Property="FontSize"
                     Value="Large"/>
+            <Setter Property="TextColor"
+                    Value="Black"/>
         </Style>
+        <Style TargetType="Entry">
+            <Setter Property="TextColor"
+                    Value="Black"/>
+            <Setter Property="PlaceholderColor"
+                    Value="SlateGray"/>
+        </Style>
+
     </Application.Resources>
 </Application>

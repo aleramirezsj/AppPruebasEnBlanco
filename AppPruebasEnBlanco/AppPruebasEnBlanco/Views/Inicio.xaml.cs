@@ -26,5 +26,9 @@ namespace AppPruebasEnBlanco.Views
         {
             await Navigation.PushAsync(new ControlesComunes());
         }
+        private async void AbrirListaPersonas(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ListaPersonas());
+        }
     }
 }

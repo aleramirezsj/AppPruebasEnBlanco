@@ -20,6 +20,10 @@
                     Margin="40"  
                     Clicked="AbrirControlesComunes"
                     Style="{StaticResource EstiloBotonDefault}"></Button>
+            <Button Text="Lista de personas" 
+                    Margin="40"  
+                    Clicked="AbrirListaPersonas"
+                    Style="{StaticResource EstiloBotonDefault}"></Button>
 
         </StackLayout>
     </ContentPage.Content>
