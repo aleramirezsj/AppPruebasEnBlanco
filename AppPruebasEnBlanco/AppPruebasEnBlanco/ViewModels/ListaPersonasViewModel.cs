@@ -86,12 +86,17 @@ namespace AppPruebasEnBlanco.ViewModels
                 { 
                     Nombre = PersonaSeleccionada.Nombre;
                     Direccion = PersonaSeleccionada.Direccion;
+                    
                 }
             });
             EliminarPersonaCommand = new Command(async()=>{
-                personas.Remove(PersonaSeleccionada);
-                
-                PersonaSeleccionada = null;
+            bool respuesta = await Application.Current.MainPage.DisplayAlert("Eliminar persona", "¿Está seguro/a que quiere borrar la personao seleccionada?", "Sí", "No");
+                if (respuesta)
+                {
+                    personas.Remove(PersonaSeleccionada);
+
+                    PersonaSeleccionada = null;
+                }
             });
 
 

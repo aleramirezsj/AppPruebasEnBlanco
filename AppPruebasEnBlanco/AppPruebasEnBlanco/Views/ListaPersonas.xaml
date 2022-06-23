@@ -5,15 +5,26 @@
     <ContentPage.BindingContext>
         <viewmodels:ListaPersonasViewModel/>
     </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <Style x:Key="BotonModificar" TargetType="Button"
+               BasedOn="{StaticResource EstiloBotonDefault}">
+            <Style.Triggers>
+                <DataTrigger TargetType="{x:Type Button}"
+        Binding="{Binding SelectedItem, Source={x:Reference listapersonas}}" Value="{x:Null}">
+                    <Setter Property="IsEnabled" Value="False" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <Grid>
+            <Grid HeightRequest="500">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="1.2*"/>
                     <RowDefinition Height="1.2*"/>
                     <RowDefinition Height="1.2*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="1.2*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -34,7 +45,8 @@
                 <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
                         Style="{StaticResource EstiloBotonDefault}"
                         Command="{Binding GuardarPersonaCommand}"
-                        Text="Agregar"/>
+                        Text="Agregar"
+                        x:Name="btnAgregarActualizar"/>
                 <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
                         Style="{StaticResource EstiloBotonDefault}"
                         Command="{Binding ModificarPersonaCommand}"

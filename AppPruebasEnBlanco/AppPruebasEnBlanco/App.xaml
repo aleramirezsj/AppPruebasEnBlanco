@@ -34,7 +34,15 @@
                     Value="Black"/>
             <Setter Property="PlaceholderColor"
                     Value="SlateGray"/>
+            <Style.Triggers>
+                <Trigger TargetType="Entry" Property="IsFocused" Value="True">
+                    <Setter Property="TextColor" Value="Red"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
+        
+        
+        
 
     </Application.Resources>
 </Application>
