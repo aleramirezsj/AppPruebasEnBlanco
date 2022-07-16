@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:AppPruebasEnBlanco.ViewModels"
-             x:Class="AppPruebasEnBlanco.Views.ListaPersonas">
+             x:Class="AppPruebasEnBlanco.Views.ListaPersonasFB">
     <ContentPage.BindingContext>
-        <viewmodels:ListaPersonasViewModel/>
+        <viewmodels:ListaPersonasFBViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Resources>
         <Style x:Key="BotonActualizar" TargetType="Button"

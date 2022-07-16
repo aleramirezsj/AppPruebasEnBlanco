@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppPruebasEnBlanco.Android"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppPruebasEnBlanco.iOS", "AppPruebasEnBlanco\AppPruebasEnBlanco.iOS\AppPruebasEnBlanco.iOS.csproj", "{119DA739-F74C-47C3-99E7-116DE580F384}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppPruebasEnBlanco", "AppPruebasEnBlanco\AppPruebasEnBlanco\AppPruebasEnBlanco.csproj", "{D726768E-78DF-494D-B9E6-A2B51E31C30B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppPruebasEnBlanco", "AppPruebasEnBlanco\AppPruebasEnBlanco\AppPruebasEnBlanco.csproj", "{D726768E-78DF-494D-B9E6-A2B51E31C30B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

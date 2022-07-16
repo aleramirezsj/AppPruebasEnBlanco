@@ -1,5 +1,6 @@
 ﻿using AppPruebasEnBlanco.Core;
 using AppPruebasEnBlanco.Models;
+using AppPruebasEnBlanco.Repositorys;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,10 +12,12 @@ namespace AppPruebasEnBlanco.ViewModels
 {
     public class ListaPersonasViewModel : ObjetoNotificacion
     {
+        readonly PersonasRepository personasRepository = new PersonasRepository();
         public Command GuardarPersonaCommand { get; }
         public Command ModificarPersonaCommand { get; }
         public Command EliminarPersonaCommand { get; }
         public Command RefrescarPersonasCommand { get; }
+        public Command ActualizarPersonaCommand { get; }
         private Persona personaSeleccionada;
 
         public Persona PersonaSeleccionada
@@ -22,6 +25,9 @@ namespace AppPruebasEnBlanco.ViewModels
             get { return personaSeleccionada; }
             set { personaSeleccionada = value;
                 OnPropertyChanged();
+                if(personaSeleccionada!=null)
+                    ModificarPersonaCommand.Execute(this);
+                
             }
         }
 
@@ -60,55 +66,65 @@ namespace AppPruebasEnBlanco.ViewModels
         public ListaPersonasViewModel()
         {
             personas = new ObservableCollection<Persona>();
+            ObtenerPersonasAsync(this, new EventArgs());
             GuardarPersonaCommand = new Command(async () =>
             {
-                //agregamos a la lista
-                personas.Add(
-                new Persona()
-                {
-                    Nombre = nombre,
-                    Direccion = direccion
-                }
-                );
+                _ = personasRepository.AgregarAsync(Nombre, Direccion);
+                ObtenerPersonasAsync(this, new EventArgs());
                 //limpiamos los Entry
                 Nombre = "";
                 Direccion = "";
-
+    
 
             });
             RefrescarPersonasCommand = new Command(async () =>
             {
-                Debug.Print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Refrescando lista");
+                ObtenerPersonasAsync(this, new EventArgs());
             });
             ModificarPersonaCommand = new Command(async () =>
             {
-                if(PersonaSeleccionada!=null)
-                { 
-                    Nombre = PersonaSeleccionada.Nombre;
-                    Direccion = PersonaSeleccionada.Direccion;
-                    
-                }
-            });
-            EliminarPersonaCommand = new Command(async()=>{
+                Nombre = PersonaSeleccionada.Nombre;
+                Direccion = PersonaSeleccionada.Direccion;
+            }
+            );
+            EliminarPersonaCommand = new Command(execute: async()=>{
             bool respuesta = await Application.Current.MainPage.DisplayAlert("Eliminar persona", "¿Está seguro/a que quiere borrar la personao seleccionada?", "Sí", "No");
                 if (respuesta)
                 {
-                    personas.Remove(PersonaSeleccionada);
+                    _ = personasRepository.Eliminar(personaSeleccionada._id);
+                    ObtenerPersonasAsync(this, new EventArgs());
 
                     PersonaSeleccionada = null;
                 }
-            });
+            },
+                canExecute: () => personaSeleccionada != null
+            );
+            ActualizarPersonaCommand = new Command(execute:async () =>
+            {
+                _ = personasRepository.ActualizarAsync(personaSeleccionada._id, Nombre, Direccion);
+                ObtenerPersonasAsync(this, new EventArgs());
+                PersonaSeleccionada = null;
+            },
+            canExecute: () => personaSeleccionada != null
+            );
 
 
-                personas.Add(
-                new Persona()
-                {
-                    Nombre = "Juan Perez",
-                    Direccion = "San Martin 1234"
-                }
-                );
+                
             
 
+        }
+
+        private async void ObtenerPersonasAsync(object sender, EventArgs e)
+        {
+            
+            personas.Clear();
+
+            var personasCollection = await personasRepository.ObtenerTodos();
+
+            foreach (Persona persona in personasCollection)
+            {
+                personas.Add(persona);
+            }
         }
     }
 }
